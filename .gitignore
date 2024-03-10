@@ -77,4 +77,4 @@ crashlytics-build.properties
 Assets/Photon/PhotonVoice/PhotonVoiceLibs/x86_64/opus_egpv.dll
 
 # Purchased scaffolding asset
-/Assets/ScaffoldingKit
+/Assets/Scaffolding/Prefabs/ScaffoldingKit
