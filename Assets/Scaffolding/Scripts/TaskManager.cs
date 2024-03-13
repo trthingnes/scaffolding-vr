@@ -35,18 +35,18 @@ public class TaskManager : MonoBehaviour
     }
 }
 
-protected class ScaffoldingTask
+internal class ScaffoldingTask
 {
     private ICompletable _task;
     private List<GameObject> _parts = new List<GameObject>();
 
-    public ScaffoldingTask(ICompletable objective, string partsTag)
+    internal ScaffoldingTask(ICompletable objective, string partsTag)
     {
         _parts.AddRange(GameObject.FindGameObjectsWithTag(partsTag));
     }
 }
 
-public interface ICompletable
+internal interface ICompletable
 {
     bool Compleated();
     void SetCompleated(bool isCompleated);
