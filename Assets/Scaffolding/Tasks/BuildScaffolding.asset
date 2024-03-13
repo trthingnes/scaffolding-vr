@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bde12d0a8b818546a8e6a31e7c4d19f, type: 3}
-  m_Name: 0 BuildScaffolding
+  m_Name: BuildScaffolding
   m_EditorClassIdentifier: 
   _taskName: Bygg stillas
   _description: 
@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9372aa15fec0c34bab20605ce118846, type: 2}
   - {fileID: 11400000, guid: 7cd33ae242a71444f9377451a4853508, type: 2}
   - {fileID: 11400000, guid: c6e4355650bd0f3428b8db93b67738b7, type: 2}
+  - {fileID: 11400000, guid: db46c6bec8867824db08d781673b9f36, type: 2}
   - {fileID: 11400000, guid: 5b20670da572e6a4681b503eeb5a7661, type: 2}
   prerequisite: {fileID: 0}
   target: {fileID: 0}
