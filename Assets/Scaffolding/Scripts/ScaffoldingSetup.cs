@@ -87,7 +87,7 @@ public class ScaffoldingSetup : MonoBehaviour
         parent.SetVisibility(isVisible);
         foreach (Transform child in parent.Part.transform)
         {
-            child.gameObject.AddComponent<Blinking_effect>();
+            child.gameObject.AddComponent<BlinkingEffect>();
         }
     }
 
@@ -128,7 +128,7 @@ public class ScaffoldingSetup : MonoBehaviour
         bool isCollidingWithHand = Physics.CheckBox(pickUpPart.Part.transform.position, pickUpPart.Part.transform.localScale / 2f, pickUpPart.Part.transform.rotation, LayerMask.GetMask(scaffoldingPart.Name));
         if (isCollidingWithHand)
         {
-            Blinking_effect highlightObject = scaffoldingPart.Part.GetComponent<Blinking_effect>();
+            BlinkingEffect highlightObject = scaffoldingPart.Part.GetComponent<BlinkingEffect>();
             highlightObject.enabled = false;
             Destroy(pickUpPart.Part);
             scaffoldingPart.DoneTask = true;
