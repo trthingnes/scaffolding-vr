@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 694b8dd6ca4134b4d82fc6b2dc8d2848, type: 3}
-  m_Name: 6 Planks
+  m_Name: 6 Plank
   m_EditorClassIdentifier: 
   _subtaskName: "Mont\xE9r innplanking"
   _description: 

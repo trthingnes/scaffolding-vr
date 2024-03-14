@@ -8,10 +8,21 @@ public class ScaffoldingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Initializing scaffolding task manager");
         TaskManager taskManager = new TaskManager(FindObjectOfType<TaskHolder>());
 
-        // TODO: Create tasks by providing GameObject tags and subtask/step names
-        taskManager.CreateBuildTask("FixedPartTag", "MatchingMovablePartTag", "SubtaskName", "StepNameOrNull");
+        taskManager.CreateBuildTask("BasePlate", "MovableBasePlate", "Plasser bunnskruer");
+        taskManager.CreateBuildTask("BearerBottom", "MovableBearer", "Fest nedre horisontale bjelker", "Fest tverrbjelker");
+        taskManager.CreateBuildTask("RunnerBottom", "MovableRunner", "Fest nedre horisontale bjelker", "Fest lengdebjelker");
+        taskManager.CreateBuildTask("Vertical", "MovableVertical", "Sett på spirer");
+        taskManager.CreateBuildTask("BearerTop", "MovableBearer", "Fest øvre horisontale bjelker", "Fest tverrbjelker");
+        taskManager.CreateBuildTask("RunnerTop", "MovableRunner", "Fest øvre horisontale bjelker", "Fest lengdebjelker");
+        taskManager.CreateBuildTask("Brace", "MovableBrace", "Fest diagonalstag");
+        taskManager.CreateBuildTask("Plank", "MovablePlank", "Montér innplanking");
+        taskManager.CreateBuildTask("Ladder", "MovableLadder", "Montér stige");
+        taskManager.CreateBuildTask("TopBoard", "MovableTopBoard", "Montér sparkebrett");
+        taskManager.CreateBuildTask("GuardRail", "MovableGuardRail", "Montér rekkverk");
+        Debug.Log($"Successfully created {taskManager.count} tasks");
     }
 
     // Update is called once per frame
@@ -25,21 +36,20 @@ public class ScaffoldingManager : MonoBehaviour
 [System.Serializable]
 public class TaskManager
 {
-    private const string MAIN_TASK_NAME = "Bygg stillas";
-
     private Task.Task _mainTask;
     private List<BuildTask> _buildTasks;
 
     public TaskManager(TaskHolder taskHolder)
     {
-        _mainTask = taskHolder.GetTask(MAIN_TASK_NAME);
+        _mainTask = taskHolder.GetTask("Bygg stillas");
         _buildTasks = new List<BuildTask>();
     }
 
     public BuildTask activeTask { get => _buildTasks.Find(bt => bt.status == BuildTask.Status.ACTIVE); }
     public BuildTask nextTask { get => _buildTasks[_buildTasks.IndexOf(activeTask) + 1]; }
+    public int count { get => _buildTasks.Count; }
 
-    public void CreateBuildTask(string fixedPartTag, string requiredMovablePartsTag, string subtaskName, string? stepName)
+    public void CreateBuildTask(string fixedPartTag, string requiredMovablePartsTag, string subtaskName, string? stepName = null)
     {
         // We find all FixedParts/GameObjects tagged with the given tag so they can be manipulated as a group
         List<FixedPart> fixedParts = new List<FixedPart>();
@@ -59,6 +69,7 @@ public class TaskManager
 
     public bool AttemptToCompleteActiveTask(MovablePart movablePart)
     {
+        // TODO: This need some more work. We only want the current tasks parts to be triggered by collision.
         if (activeTask.IsCorrectPart(movablePart))
         {
             activeTask.Complete();
@@ -143,7 +154,7 @@ public class FixedPart
     {
         _gameObject = gameObject;
         _outline = _gameObject.GetComponent<BlinkingEffect>();
-        _state = State.INVISIBLE;
+        SetState(State.INVISIBLE);
     }
 
     public string name { get => _gameObject.name; }
