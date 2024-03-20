@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //Class for creating blinking effect with a choosen color
-public class Blinking_effect : MonoBehaviour
+public class BlinkingEffect : MonoBehaviour
 {
     public Color startColor = Color.green;
     public Color endColor = Color.black;
@@ -15,8 +13,8 @@ public class Blinking_effect : MonoBehaviour
     void Awake()
     {
         ren = GetComponent<Renderer>();
-
     }
+
     //Creating continious blinking effect
     void Update()
     {
