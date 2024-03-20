@@ -12,17 +12,21 @@ public class ScaffoldingManager : MonoBehaviour
     {
         Debug.Log("Initializing scaffolding task manager");
         _taskManager = new TaskManager(FindObjectOfType<TaskHolder>());
-        _taskManager.CreateBuildTask("BasePlate", "MovableBasePlate", "Plasser bunnskruer");
-        _taskManager.CreateBuildTask("BearerBottom", "MovableBearer", "Fest nedre horisontale bjelker", "Fest tverrbjelker");
-        _taskManager.CreateBuildTask("RunnerBottom", "MovableRunner", "Fest nedre horisontale bjelker", "Fest lengdebjelker");
-        _taskManager.CreateBuildTask("Vertical", "MovableVertical", "Sett på spirer");
-        _taskManager.CreateBuildTask("BearerTop", "MovableBearer", "Fest øvre horisontale bjelker", "Fest tverrbjelker");
-        _taskManager.CreateBuildTask("RunnerTop", "MovableRunner", "Fest øvre horisontale bjelker", "Fest lengdebjelker");
-        _taskManager.CreateBuildTask("Brace", "MovableBrace", "Fest diagonalstag");
-        _taskManager.CreateBuildTask("Plank", "MovablePlank", "Montér innplanking");
-        _taskManager.CreateBuildTask("Ladder", "MovableLadder", "Montér stige");
-        _taskManager.CreateBuildTask("TopBoard", "MovableTopBoard", "Montér sparkebrett");
-        _taskManager.CreateBuildTask("GuardRail", "MovableGuardRail", "Montér rekkverk");
+        _taskManager.CreateBuildTask("FootPiece", "MovableFootPiece", "Plasser bunnskruer");
+        _taskManager.CreateBuildTask("LongBeamBottom", "", "Fest nedre horisontale bjelker", "Fest lengdebjelker");
+        _taskManager.CreateBuildTask("CrossBeamBottom", "", "Fest nedre horisontale bjelker", "Fest tverrbjelker");
+        _taskManager.CreateBuildTask("StandardBottom", "", "Sett på bunnspirer");
+        _taskManager.CreateBuildTask("LongBeamTop", "", "Fest øvre horisontale bjelker", "Fest lengdebjelker");
+        _taskManager.CreateBuildTask("CrossBeamTop", "", "Fest øvre horisontale bjelker", "Fest tverrbjelker");
+        _taskManager.CreateBuildTask("Bracing", "", "Fest diagonalstag");
+        _taskManager.CreateBuildTask("SteelDeck", "", "Montér innplanking");
+        _taskManager.CreateBuildTask("LadderBeam", "", "Montér stige", "Fest stigebjelke");
+        _taskManager.CreateBuildTask("LadderStandard", "", "Montér stige", "Fest stigespire");
+        _taskManager.CreateBuildTask("Ladder", "", "Montér stige", "Fest stige");
+        _taskManager.CreateBuildTask("StandardTop", "", "Sett på toppspirer");
+        _taskManager.CreateBuildTask("Railing", "", "Montér rekkverk");
+        _taskManager.CreateBuildTask("Kickboard", "", "Montér sparkebrett");
+        _taskManager.CreateBuildTask("RailingFront", "", "Montér sparkebrett");
         Debug.Log($"Successfully created {_taskManager.count} tasks");
     }
 

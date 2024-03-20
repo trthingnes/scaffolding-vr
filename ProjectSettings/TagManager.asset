@@ -30,8 +30,8 @@ TagManager:
   - LadderStandard
   - Ladder
   - Hand
-  - FootPiecePickUp
-  - LongBeamBottomPickUp
+  - MovableFootPiece
+  - RailingFront
   layers:
   - Default
   - TransparentFX
