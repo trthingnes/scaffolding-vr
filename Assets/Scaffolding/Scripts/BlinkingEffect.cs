@@ -11,9 +11,9 @@ public class BlinkingEffect : MonoBehaviour
     public float speed = 1;
     Renderer ren;
 
-    void Start()
+    void OnEnable()
     {
-        ren = GetComponent<Renderer>();
+        ren = gameObject.GetComponent<Renderer>();
         originalMaterial = ren.material;
     }
 
