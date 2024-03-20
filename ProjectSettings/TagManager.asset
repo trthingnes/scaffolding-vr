@@ -32,7 +32,6 @@ TagManager:
   - Hand
   - MovableFootPiece
   - RailingFront
-  - MoveableLongBeam
   - MovableCrossBeam
   - MovableStandard
   - MovableBracing
@@ -42,6 +41,7 @@ TagManager:
   - MovableLadder
   - MovableRailing
   - MovableKickboard
+  - MovableLongBeam
   layers:
   - Default
   - TransparentFX

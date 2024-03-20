@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Task;
+using System;
 
 #nullable enable
 
@@ -31,12 +32,14 @@ namespace Scaffolding
             _taskManager.CreateBuildTask("Kickboard", "MovableKickboard", "Montér sparkebrett");
             _taskManager.CreateBuildTask("RailingFront", "MovableRailing", "Montér framre rekkverk");
             Debug.Log($"Successfully created {_taskManager.count} tasks");
+            _taskManager.ActivateFirstTask();
+            Debug.Log($"Successfully activated {_taskManager.currentTask.name}");
         }
 
         // Update is called once per frame
         void Update()
         {
-            //_taskManager.currentTask.AttemptToCompleteAndActivateNext(_taskManager.GetNextTask());
+            _taskManager.currentTask.AttemptToCompleteAndActivateNext(_taskManager.GetNextTask());
         }
 
         [System.Serializable]
@@ -56,8 +59,16 @@ namespace Scaffolding
 
             public BuildTask? GetNextTask()
             {
-                int nextIndex = _buildTasks.IndexOf(currentTask);
-                return nextIndex > count ? _buildTasks[nextIndex] : null;
+                int nextIndex = _buildTasks.IndexOf(currentTask) + 1;
+
+                try
+                {
+                    return _buildTasks[nextIndex];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    return null;
+                }
             }
 
             public void CreateBuildTask(string fixedPartTag, string matchingMovablePartsTag, string subtaskName, string? stepName = null)
@@ -78,11 +89,24 @@ namespace Scaffolding
 
                 // We do not care if we are dealing with a task, subtask or step, so we cast to ICompletable
                 ICompletable tabletTask = stepName == null ?
-                    (ICompletable)_mainTask.GetSubtask(subtaskName) :
-                    (ICompletable)_mainTask.GetSubtask(subtaskName).GetStep(stepName);
+                    _mainTask.GetSubtask(subtaskName) :
+                    _mainTask.GetSubtask(subtaskName).GetStep(stepName);
+                Debug.Log($"Loaded task '{tabletTask}'");
 
                 // Provide the assembled part tag to the objective so the state can be manipulated correctly
                 _buildTasks.Add(new BuildTask(fixedParts, movableParts, tabletTask));
+            }
+
+            public void ActivateFirstTask()
+            {
+                try
+                {
+                    _buildTasks[0].ActivateTask();
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    Debug.Log("Failed to activate first task");
+                }
             }
         }
 
@@ -110,22 +134,25 @@ namespace Scaffolding
 
             public string name { get => _tabletTask.ToString(); }
             public Status status { get => _status; }
+            public List<MovablePart> unusedMatchingMovableParts { get => _matchingMovableParts.FindAll(mPart => mPart.gameObject != null); }
 
             public void AttemptToCompleteAndActivateNext(BuildTask? nextTask)
             {
-                foreach (MovablePart mPart in _matchingMovableParts)
+                if (status == Status.COMPLETED)
+                    return;
+
+                foreach (MovablePart mPart in unusedMatchingMovableParts)
                 {
                     foreach (FixedPart fPart in _fixedParts)
                     {
                         if (Physics.CheckBox(
                             mPart.gameObject.transform.position,
-                            mPart.gameObject.transform.localScale / 10f,
+                            mPart.gameObject.transform.localScale / 2f,
                             mPart.gameObject.transform.rotation,
                             LayerMask.GetMask(fPart.gameObject.tag)
                         ))
                         {
                             Destroy(mPart.gameObject);
-                            _matchingMovableParts.Remove(mPart);
 
                             CompleteTask();
                             Debug.Log($"Completed current task: '{this}'");
@@ -139,12 +166,14 @@ namespace Scaffolding
                             {
                                 Debug.Log("Congratulations! Scaffolding is complete.");
                             }
+
+                            return;
                         }
                     }
                 }
             }
 
-            private void ActivateTask()
+            internal void ActivateTask()
             {
                 _fixedParts.ForEach(part => part.SetState(FixedPart.State.OUTLINED));
                 _status = Status.ACTIVE;
@@ -185,13 +214,12 @@ namespace Scaffolding
         public class FixedPart
         {
             private GameObject _gameObject;
-            private BlinkingEffect _outline;
+            private BlinkingEffect? _blinkingEffect;
             private State _state;
 
             public FixedPart(GameObject gameObject)
             {
                 _gameObject = gameObject;
-                _outline = _gameObject.AddComponent<BlinkingEffect>();
                 SetState(State.INVISIBLE);
             }
 
@@ -203,19 +231,25 @@ namespace Scaffolding
                 if (_gameObject == null)
                     return;
 
+                Debug.Log($"Setting {_gameObject.name} to {state}");
+
                 switch (state)
                 {
                     case State.INVISIBLE:
                         _gameObject.SetActive(false);
-                        _outline.enabled = false;
                         break;
                     case State.OUTLINED:
                         _gameObject.SetActive(true);
-                        _outline.enabled = true;
+                        _blinkingEffect = _gameObject.AddComponent<BlinkingEffect>();
                         break;
                     case State.VISIBLE:
                         _gameObject.SetActive(true);
-                        _outline.enabled = false;
+                        
+                        if (_blinkingEffect != null)
+                        {
+                            _blinkingEffect.enabled = false;
+                        }
+
                         break;
                 }
 

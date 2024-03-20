@@ -5,7 +5,7 @@ public class BlinkingEffect : MonoBehaviour
 {
     public Color startColor = Color.green;
     public Color endColor = Color.black;
-    public Material originalMaterial;
+    public Color originalColor;
 
     [Range(0, 10)]
     public float speed = 1;
@@ -14,12 +14,14 @@ public class BlinkingEffect : MonoBehaviour
     void OnEnable()
     {
         ren = gameObject.GetComponent<Renderer>();
-        originalMaterial = ren.material;
+        originalColor = ren.material.color;
+        Debug.Log($"Enabling blinking effect on {gameObject.name}");
     }
 
     void OnDisable()
     {
-        ren.material = originalMaterial;
+        ren.material.color = originalColor;
+        Debug.Log($"Disabling blinking effect on {gameObject.name}");
     }
 
     //Creating continious blinking effect
