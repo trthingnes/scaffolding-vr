@@ -32,6 +32,16 @@ TagManager:
   - Hand
   - MovableFootPiece
   - RailingFront
+  - MoveableLongBeam
+  - MovableCrossBeam
+  - MovableStandard
+  - MovableBracing
+  - MovableSteelDeck
+  - MovableLadderBeam
+  - MovableLadderStandard
+  - MovableLadder
+  - MovableRailing
+  - MovableKickboard
   layers:
   - Default
   - TransparentFX
@@ -48,20 +58,20 @@ TagManager:
   - Grab
   - GrabbableScenery
   - FootPiece
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - CrossBeamBottom
+  - LongBeamBottom
+  - StandardBottom
+  - CrossBeamTop
+  - LongBeamTop
+  - Bracing
+  - SteelDeck
+  - LadderBeam
+  - LadderStandard
+  - Ladder
+  - StandardTop
+  - Railing
+  - Kickboard
+  - RailingFront
   - 
   - 
   - 

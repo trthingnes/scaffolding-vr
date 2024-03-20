@@ -13,20 +13,20 @@ public class ScaffoldingManager : MonoBehaviour
         Debug.Log("Initializing scaffolding task manager");
         _taskManager = new TaskManager(FindObjectOfType<TaskHolder>());
         _taskManager.CreateBuildTask("FootPiece", "MovableFootPiece", "Plasser bunnskruer");
-        _taskManager.CreateBuildTask("LongBeamBottom", "", "Fest nedre horisontale bjelker", "Fest lengdebjelker");
-        _taskManager.CreateBuildTask("CrossBeamBottom", "", "Fest nedre horisontale bjelker", "Fest tverrbjelker");
-        _taskManager.CreateBuildTask("StandardBottom", "", "Sett på bunnspirer");
-        _taskManager.CreateBuildTask("LongBeamTop", "", "Fest øvre horisontale bjelker", "Fest lengdebjelker");
-        _taskManager.CreateBuildTask("CrossBeamTop", "", "Fest øvre horisontale bjelker", "Fest tverrbjelker");
-        _taskManager.CreateBuildTask("Bracing", "", "Fest diagonalstag");
-        _taskManager.CreateBuildTask("SteelDeck", "", "Montér innplanking");
-        _taskManager.CreateBuildTask("LadderBeam", "", "Montér stige", "Fest stigebjelke");
-        _taskManager.CreateBuildTask("LadderStandard", "", "Montér stige", "Fest stigespire");
-        _taskManager.CreateBuildTask("Ladder", "", "Montér stige", "Fest stige");
-        _taskManager.CreateBuildTask("StandardTop", "", "Sett på toppspirer");
-        _taskManager.CreateBuildTask("Railing", "", "Montér rekkverk");
-        _taskManager.CreateBuildTask("Kickboard", "", "Montér sparkebrett");
-        _taskManager.CreateBuildTask("RailingFront", "", "Montér sparkebrett");
+        _taskManager.CreateBuildTask("LongBeamBottom", "MovableLongBeam", "Fest nedre horisontale bjelker", "Fest lengdebjelker");
+        _taskManager.CreateBuildTask("CrossBeamBottom", "MovableCrossBeam", "Fest nedre horisontale bjelker", "Fest tverrbjelker");
+        _taskManager.CreateBuildTask("StandardBottom", "MovableStandard", "Sett på bunnspirer");
+        _taskManager.CreateBuildTask("LongBeamTop", "MovableLongBeam", "Fest øvre horisontale bjelker", "Fest lengdebjelker");
+        _taskManager.CreateBuildTask("CrossBeamTop", "MovableCrossBeam", "Fest øvre horisontale bjelker", "Fest tverrbjelker");
+        _taskManager.CreateBuildTask("Bracing", "MovableBracing", "Fest diagonalstag");
+        _taskManager.CreateBuildTask("SteelDeck", "MovableSteelDeck", "Montér innplanking");
+        _taskManager.CreateBuildTask("LadderBeam", "MovableLadderBeam", "Montér stige", "Fest stigebjelke");
+        _taskManager.CreateBuildTask("LadderStandard", "MovableLadderStandard", "Montér stige", "Fest stigespire");
+        _taskManager.CreateBuildTask("Ladder", "MovableLadder", "Montér stige", "Fest stige");
+        _taskManager.CreateBuildTask("StandardTop", "MovableStandard", "Sett på toppspirer");
+        _taskManager.CreateBuildTask("Railing", "MovableRailing", "Montér rekkverk");
+        _taskManager.CreateBuildTask("Kickboard", "MovableKickboard", "Montér sparkebrett");
+        _taskManager.CreateBuildTask("RailingFront", "MovableRailing", "Montér framre rekkverk");
         Debug.Log($"Successfully created {_taskManager.count} tasks");
     }
 
@@ -116,9 +116,9 @@ public class ScaffoldingManager : MonoBehaviour
                 {
                     if (Physics.CheckBox(
                         mPart.gameObject.transform.position,
-                        mPart.gameObject.transform.localScale / 2f,
+                        mPart.gameObject.transform.localScale / 10f,
                         mPart.gameObject.transform.rotation,
-                        LayerMask.GetMask(fPart.gameObject.name)
+                        LayerMask.GetMask(fPart.gameObject.tag)
                     ))
                     {
                         Destroy(mPart.gameObject);
@@ -188,7 +188,7 @@ public class ScaffoldingManager : MonoBehaviour
         public FixedPart(GameObject gameObject)
         {
             _gameObject = gameObject;
-            _outline = _gameObject.GetComponent<BlinkingEffect>();
+            _outline = _gameObject.AddComponent<BlinkingEffect>();
             SetState(State.INVISIBLE);
         }
 
@@ -197,14 +197,6 @@ public class ScaffoldingManager : MonoBehaviour
 
         public void SetState(State state)
         {
-            /* TODO: Insert this code in correct location
-             * 
-             * foreach (Transform transform in parent.Part.transform)
-             * {
-             *      transform.gameObject.AddComponent<BlinkingEffect>();
-             * }
-             */
-
             if (_gameObject == null)
                 return;
 

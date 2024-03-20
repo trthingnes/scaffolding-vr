@@ -86,8 +86,8 @@ public class ScaffoldingSetup : MonoBehaviour
 
             foreach (Transform child in parent.Part.transform)
             {
-                if (child.GetComponent<Blinking_effect>() == null)
-                    child.gameObject.AddComponent<Blinking_effect>();
+                if (child.GetComponent<BlinkingEffect>() == null)
+                    child.gameObject.AddComponent<BlinkingEffect>();
             }
         }
     }
@@ -126,16 +126,16 @@ public class ScaffoldingSetup : MonoBehaviour
         // Implement VR interactions to place the part on the scaffolding
         GameObject scaffoldingPartGameObject = scaffoldingPart.Part;
         GameObject pickUpPartGameObject = pickUpPart.Part;
-        Blinking_effect highlightObject = scaffoldingPartGameObject.GetComponent<Blinking_effect>();
+        BlinkingEffect highlightObject = scaffoldingPartGameObject.GetComponent<BlinkingEffect>();
 
         bool isCollidingWithHand = Physics.CheckBox(pickUpPartGameObject.transform.position, pickUpPartGameObject.transform.localScale / 10f, pickUpPartGameObject.transform.rotation, LayerMask.GetMask(scaffoldingPart.Name));
         if (isCollidingWithHand && !scaffoldingPart.DoneTask)
         {
             foreach (Transform child in scaffoldingPartGameObject.transform)
             {
-                if (child.GetComponent<Blinking_effect>() != null)
+                if (child.GetComponent<BlinkingEffect>() != null)
                 {
-                    Destroy(child.gameObject.GetComponent<Blinking_effect>());
+                    Destroy(child.gameObject.GetComponent<BlinkingEffect>());
                     child.gameObject.GetComponent<Renderer>().material = material;
                 }       
             }

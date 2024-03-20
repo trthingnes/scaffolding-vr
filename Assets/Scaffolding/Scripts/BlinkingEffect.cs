@@ -5,14 +5,21 @@ public class BlinkingEffect : MonoBehaviour
 {
     public Color startColor = Color.green;
     public Color endColor = Color.black;
+    public Material originalMaterial;
 
     [Range(0, 10)]
     public float speed = 1;
     Renderer ren;
 
-    void Awake()
+    void Start()
     {
         ren = GetComponent<Renderer>();
+        originalMaterial = ren.material;
+    }
+
+    void OnDisable()
+    {
+        ren.material = originalMaterial;
     }
 
     //Creating continious blinking effect
