@@ -65,7 +65,7 @@ namespace Scaffolding
                 {
                     return _buildTasks[nextIndex];
                 }
-                catch (IndexOutOfRangeException)
+                catch (ArgumentOutOfRangeException)
                 {
                     return null;
                 }
