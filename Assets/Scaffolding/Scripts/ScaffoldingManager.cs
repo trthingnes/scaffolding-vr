@@ -5,6 +5,16 @@ using System;
 
 #nullable enable
 
+/**
+ * TODO
+ * 
+ * Make it possible to teleport to the top of the scaffold
+ * Make the ladder impossible to climb before it has been mounted
+ * Adjust the height of the scaffold to make it look like the picture and easier to build
+ * Fix the task tablet. It currently does not update with tasks properly
+ * Try to make the OUTLINED FixedParts without colliders so they feel like they are not present when placing parts
+ * Show a message or something when the scaffold is complete
+ */
 namespace Scaffolding
 {
     public class ScaffoldingManager : MonoBehaviour
@@ -39,7 +49,10 @@ namespace Scaffolding
         // Update is called once per frame
         void Update()
         {
-            _taskManager.currentTask.AttemptToCompleteAndActivateNext(_taskManager.GetNextTask());
+            if (_taskManager.currentTask != null)
+            {
+                _taskManager.currentTask.AttemptToCompleteAndActivateNext(_taskManager.GetNextTask());
+            }
         }
 
         [System.Serializable]
