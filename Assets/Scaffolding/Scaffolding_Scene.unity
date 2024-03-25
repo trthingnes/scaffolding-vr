@@ -25127,6 +25127,36 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ladder
       objectReference: {fileID: 0}
+    - target: {fileID: 3133721633707798277, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: CollisionLinearMotionX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133721633707798277, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: CollisionLinearMotionY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133721633707798277, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: CollisionLinearMotionZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133721633707798277, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: CollisionAngularMotionX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133721633707798277, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: CollisionAngularMotionY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133721633707798277, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: CollisionAngularMotionZ
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3133721634049309139, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
       propertyPath: m_Layer
