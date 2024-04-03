@@ -36,7 +36,6 @@ namespace Scaffolding
             _taskManager.CreateBuildTask("SteelDeck", "MovableSteelDeck", "Monter innplanking");
             _taskManager.CreateBuildTask("LadderBeam", "MovableLadderBeam", "Monter stige", "Fest stigebjelke");
             _taskManager.CreateBuildTask("LadderStandard", "MovableLadderStandard", "Monter stige", "Fest stigespire");
-            _taskManager.CreateBuildTask("Ladder", "MovableLadder", "Monter stige", "Fest stige");
             _taskManager.CreateBuildTask("StandardTop", "MovableStandard", "Sett på toppspirer");
             _taskManager.CreateBuildTask("Railing", "MovableRailing", "Monter rekkverk");
             _taskManager.CreateBuildTask("Kickboard", "MovableKickboard", "Monter sparkebrett");

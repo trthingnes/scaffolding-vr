@@ -28,7 +28,6 @@ TagManager:
   - LadderBeam
   - StandardTop
   - LadderStandard
-  - Ladder
   - Hand
   - MovableFootPiece
   - RailingFront
@@ -38,7 +37,6 @@ TagManager:
   - MovableSteelDeck
   - MovableLadderBeam
   - MovableLadderStandard
-  - MovableLadder
   - MovableRailing
   - MovableKickboard
   - MovableLongBeam
