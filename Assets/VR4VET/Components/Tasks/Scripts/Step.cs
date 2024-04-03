@@ -3,14 +3,13 @@
  */
 
 using UnityEngine;
-using Scaffolding;
 
 namespace Task
 {
     [System.Serializable]
 
     [CreateAssetMenu(fileName = "New Step", menuName = "Tasks/Step")]
-    public class Step : ScriptableObject, ScaffoldingManager.ICompletable
+    public class Step : ScriptableObject, ICompletable
     {
         [SerializeField] private string _stepName;
         [SerializeField] [Range(1, 20)] private int _repetionNumber = 1;

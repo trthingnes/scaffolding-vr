@@ -124,12 +124,6 @@ namespace Scaffolding
             }
         }
 
-        public interface ICompletable
-        {
-            bool Compleated();
-            void SetCompleated(bool isCompleated);
-        }
-
         [System.Serializable]
         public class BuildTask
         {
