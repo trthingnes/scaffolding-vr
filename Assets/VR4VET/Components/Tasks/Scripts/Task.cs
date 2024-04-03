@@ -4,12 +4,11 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using Scaffolding;
 
 namespace Task
 {
     [CreateAssetMenu(fileName = "New Task", menuName = "Tasks/Task")]
-    public class Task : ScriptableObject, ScaffoldingManager.ICompletable
+    public class Task : ScriptableObject, ICompletable
     {
         [Header("General information")]
         [SerializeField] private string _taskName;
