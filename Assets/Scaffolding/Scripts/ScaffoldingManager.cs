@@ -252,6 +252,14 @@ namespace Scaffolding
                         _gameObject.SetActive(false);
                         break;
                     case State.OUTLINED:
+                        var collider = _gameObject.GetComponent<Collider>();
+
+                        if (collider is MeshCollider)
+                        {
+                            ((MeshCollider)collider).convex = true;
+                        }
+                        _gameObject.GetComponent<Collider>().isTrigger = true;
+
                         _gameObject.SetActive(true);
                         _blinkingEffect = _gameObject.AddComponent<BlinkingEffect>();
                         break;
@@ -262,7 +270,7 @@ namespace Scaffolding
                         {
                             _blinkingEffect.enabled = false;
                         }
-
+                        _gameObject.GetComponent<Collider>().isTrigger = false;
                         break;
                 }
 

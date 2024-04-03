@@ -3690,8 +3690,8 @@ Transform:
   - {fileID: 3200647}
   - {fileID: 2067962970}
   - {fileID: 751007563}
-  - {fileID: 1925241067}
   - {fileID: 1817157338}
+  - {fileID: 1925241067}
   - {fileID: 800678311}
   - {fileID: 1057090578}
   - {fileID: 630872461}
@@ -20771,7 +20771,7 @@ Transform:
   m_Children:
   - {fileID: 1553895488}
   m_Father: {fileID: 423046667}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1817157339
 Rigidbody:
@@ -24852,6 +24852,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 8.64
       objectReference: {fileID: 0}
+    - target: {fileID: 82012794342067081, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82012794342067081, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 107435632242564481, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
       propertyPath: m_Layer
@@ -24909,8 +24919,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 850565469601274486, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850565469601274486, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 850565469601274486, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 864725710530611123, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
@@ -25009,8 +25029,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118707939145727757, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118707939145727757, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118707939145727757, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138087640528383405, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138087640528383405, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2181035004812608245, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
@@ -25056,6 +25096,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: LadderBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683869880824374929, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683869880824374929, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2745888542070754150, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
@@ -25309,8 +25359,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329055821882874516, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329055821882874516, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329055821882874516, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4406490308916483132, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
@@ -25369,8 +25429,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128427564848577505, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128427564848577505, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128427564848577505, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5171386156197306730, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
@@ -25577,6 +25647,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 7457265839158124537, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457265839158124537, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7526268567426976007, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
       propertyPath: m_Name
@@ -25601,6 +25681,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824784816413866052, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824784816413866052, guid: 89a23d2a5b7e62b4080d19f15804d27d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7971208120371529502, guid: 89a23d2a5b7e62b4080d19f15804d27d,
         type: 3}
