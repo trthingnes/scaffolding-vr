@@ -228,11 +228,18 @@ namespace Scaffolding
             private GameObject _gameObject;
             private BlinkingEffect? _blinkingEffect;
             private State _state;
+            private GameObject? _ladder;
 
             public FixedPart(GameObject gameObject)
             {
                 _gameObject = gameObject;
                 SetState(State.INVISIBLE);
+
+                if (gameObject.tag == "LadderStandard")
+                {
+                    _ladder = GameObject.FindGameObjectWithTag("Ladder");
+                    _ladder.SetActive(false);
+                }
             }
 
             public GameObject gameObject { get => _gameObject; }
@@ -252,19 +259,20 @@ namespace Scaffolding
                         break;
                     case State.OUTLINED:
                         var collider = _gameObject.GetComponent<Collider>();
-
                         if (collider is MeshCollider)
                         {
                             ((MeshCollider)collider).convex = true;
                         }
                         _gameObject.GetComponent<Collider>().isTrigger = true;
-
                         _gameObject.SetActive(true);
                         _blinkingEffect = _gameObject.AddComponent<BlinkingEffect>();
                         break;
                     case State.VISIBLE:
                         _gameObject.SetActive(true);
-                        
+                        if (_ladder != null)
+                        {
+                            _ladder.SetActive(true);
+                        }
                         if (_blinkingEffect != null)
                         {
                             _blinkingEffect.enabled = false;

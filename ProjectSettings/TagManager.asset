@@ -40,6 +40,7 @@ TagManager:
   - MovableRailing
   - MovableKickboard
   - MovableLongBeam
+  - Ladder
   layers:
   - Default
   - TransparentFX
