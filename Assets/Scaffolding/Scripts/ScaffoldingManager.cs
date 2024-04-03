@@ -19,7 +19,9 @@ namespace Scaffolding
 {
     public class ScaffoldingManager : MonoBehaviour
     {
+        #pragma warning disable CS8618
         private TaskManager _taskManager;
+        #pragma warning restore CS8618
 
         // Start is called before the first frame update
         void Start()
